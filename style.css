@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+   /* background-color: black;
+    color: white;*/
+}
+
+.left {
+    width: 25vw;
+    padding: 10px;
+}
+
+.right {
+    width: 75vw;
+}
+.home{
+    padding: 10px;
+}
+
+.home ul li{
+display: flex;
+width: 18px;
+list-style:none;
+gap: 15px;
+padding-top: 15px;
+font-weight: 700;
+
+
+}
+
+.bg-grey{
+    background-color: #121212;
+}
+
+.bold{
+    font-weight: 700;
+}
