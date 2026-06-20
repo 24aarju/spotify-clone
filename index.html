@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Document</title>                                              
 </head>
 <body>
     <div class="container flex bg-black">
  <div class="left">
  <div class="home bg-grey rounded m-1 p-1">
-    <div class="logo"><img class ="invert" src="logo.svg" alt=""></div>
+    <div class="logo"><img class ="invert" src="logo.svg" alt="spotify"> Spotify</div>
  <ul>
     <li><img class ="invert" src="home.svg" alt="home">Home</li>
     <li><img class ="invert" src="search.svg" alt="home">Search</li>
@@ -19,6 +20,11 @@
  </div>
  <div class="library bg-grey rounded m-1 p-1 bold">
     Your Library
+    <ul>
+      <li>Playlist</li>
+      <li>Artist</li>
+      <li>Album</li>
+    </ul>
     <div class="footer">
       
 <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
@@ -36,10 +42,14 @@
  </div> 
  </div>
  </div>
- <div class="right border">
+ <div class="right bg-grey rounded ">
    <div class="header">
-      <div class="nav"></div>
-   
+      <div class="nav">
+   <div class="left-arrow">
+                <i class="fa-solid fa-angle-left"></i></div>
+                <div class="right-arrow">
+                  <i class="fa-solid fa-angle-right"></i></div>
+                  </div>
       <div class="button">
          <button>Signup</button>
          <button>login</button>

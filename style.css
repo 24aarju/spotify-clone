@@ -16,7 +16,8 @@ body {
 }
 
 .right {
-    width: 75vw;
+    width: 70vw;
+
 }
 .home{
     padding: 10px;
@@ -60,8 +61,46 @@ font-weight: 700;
     
     
 }
+.right {
+    margin: 16px 0;
+     
+}
 
-
-.nav{
+.nav {
+    font-size: 20px;
     color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(54, 53, 53);
+
+}
+ .header > * {
+    padding: 20px;
+ }
+
+.logo {
+display: flex;
+width: 18px;
+gap: 15px;
+font-weight: 700; 
+font-size: 30px;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+font-style: italic;
+color:darkgreen;
+}
+
+.library ul li {
+display: inline-flex;
+width: 18px;
+list-style:none;
+gap: 15px;
+padding-top: 15px;
+font-weight: 700;
 }
