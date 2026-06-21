@@ -11,6 +11,7 @@ body {
 .left {
     width: 25vw;
     padding: 10px;
+    ;
     
     
 }
@@ -18,12 +19,14 @@ body {
 .right {
     width: 70vw;
 
+
+
 }
 .home{
     padding: 10px;
 }
 
-.home ul li{
+.home ul li {
 display: flex;
 width: 18px;
 list-style:none;
@@ -44,7 +47,7 @@ font-weight: 700;
 }
 
 .library{
-    min-height: 75vh;
+    min-height:111vh;
     position: relative;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
@@ -54,7 +57,7 @@ font-weight: 700;
     display: flex;
     font-size: 10px;
     gap: 13px;
-    margin-top: 70vh;
+    margin-top: 98vh;
 }
 .footer a {
     color: grey;
@@ -93,14 +96,90 @@ font-weight: 700;
 font-size: 30px;
 font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
 font-style: italic;
-color:darkgreen;
 }
 
-.library ul li {
-display: inline-flex;
+.library ul  {
 width: 18px;
 list-style:none;
-gap: 15px;
-padding-top: 15px;
+gap: 50px;
+padding-top: 20px;
 font-weight: 700;
+display: flex;
+align-items: center;
+
+
+}
+.library ul li {
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 999px;
+    padding: 5px 10px;
+    
+}
+
+
+
+.library ul li:hover{
+    background-color: rgb(31, 29, 29) !important;
+    color: green!important;
+}
+
+
+.SpotifyPlaylist{
+    padding: 16px
+}
+.cardContainer{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    
+}
+
+ .card {
+    width: 210px;
+    font-size: 17px;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: rgb(39, 37, 37);
+    position: relative;
+;
+    
+
+}
+.card >*{
+    padding-top: 10px;
+
+}
+
+.card img {
+    width: 100%;
+    object-fit: contain;
+    height: 300;
+
+}
+
+.card:hover{
+   background-color: rgb(59, 58, 58) !important; 
+}
+
+
+.play{
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    background-color: #039203;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 168px;
+    right: 10px;
+    opacity : 1;
+    transition:all 1s ease-out
+}
+
+
+.container{
+    height: 1000px;
 }
