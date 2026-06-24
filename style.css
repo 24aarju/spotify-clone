@@ -233,7 +233,7 @@ margin: 0 12px;
     position: absolute;
     bottom: 0;
     background-color: rgb(12, 66, 12);
-    width: 96%;
+    width: 90%;
     padding: 13px;
 }
 
@@ -243,3 +243,5 @@ margin: 0 12px;
     gap: 16px;
     font-size: 20px;
 }
+
+
