@@ -18,6 +18,7 @@ body {
 
 .right {
     width: 75vw;
+    height: 160vh;
 
 
 
@@ -57,7 +58,7 @@ font-weight: 700;
     display: flex;
     font-size: 10px;
     gap: 13px;
-    margin-top: 66vh;
+    margin-top: 34vh;
 }
 .footer a {
     color: grey;
@@ -127,6 +128,7 @@ align-items: center;
 .librarymenu ul li:hover{
     background-color: rgb(31, 29, 29) !important;
     color: green!important;
+    cursor: pointer;
 }
 
 
@@ -233,10 +235,10 @@ margin: 0 12px;
 
 .playbar{
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     background-color: rgb(12, 66, 12);
     width: 90%;
-    padding: 13px;
+    padding: 14px;
 }
 
 .songbuttons{
@@ -289,24 +291,66 @@ margin: 0 12px;
 
 .songlist {
     color: white;
+    height: 644px;
+    overflow: auto;
+    margin-bottom: 44px ;
+    
 }
 
 .songlist ul {
-   list-style-type: decimal;
-    padding-left: 20px;
+   padding: 0 12px;
+  margin-top: 40px;
+}
+
+.songlist ul li {
+    list-style-type: decimal;
+    display: flex;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px 0 ;
+    font-weight: normal;
+    border: 1px solid white;
+    margin: 12px 0;
+    padding: 14px;
+    border-radius: 5px;
+    justify-content: space-between;
 
 }
 
-.songlist li {
-    display: list-item;
-    margin: 10px 0;
-    
-    padding-left: 15px;
-     
-    
-    
-    
+.songlist .info{
+    font-size: 15px;
+    width: 320px;
 }
+
+ .songlist ul li img{
+    width: 40px;
+    height: 40px;
+    
+    
+ }
+
+.playbutton{
+    font-weight: normal;
+    font-size: 20px;
+   display: flex;
+   gap: 10px;
+   justify-items: center;
+   padding-left: 15px;
+}
+
+.playbutton span{
+    font-size: 15px;
+}
+.playbutton :hover{
+    font-weight: bold;
+}
+
+.songlist ul li:hover{
+font-weight: bold;
+}
+
+
+
 
 
 
