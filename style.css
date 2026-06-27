@@ -58,7 +58,7 @@ font-weight: 700;
     display: flex;
     font-size: 10px;
     gap: 13px;
-    margin-top: 34vh;
+    margin-top: 33vh;
 }
 .footer a {
     color: grey;
@@ -96,14 +96,19 @@ font-weight: 700;
 
 .logo {
 display: flex;
-width: 18px;
+
 gap: 15px;
 font-weight: 700; 
 font-size: 30px;
 font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
 font-style: italic;
+
 }
 
+.logo img{
+width: 45px;
+height: 45px;
+}
 .librarymenu ul  {
 width: 18px;
 list-style:none;
@@ -137,7 +142,7 @@ align-items: center;
 }
 .cardContainer{
     display: flex;
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
     padding-top: 10px;
     
@@ -145,12 +150,12 @@ align-items: center;
 
  .card {
     width: 210px;
-    font-size: 17px;
-    padding: 6px;
+    font-size: 16px;
+    padding: 8px;
     border-radius: 5px;
     background-color: rgb(39, 37, 37);
     position: relative;
-;
+  
     
 
 }
@@ -172,7 +177,7 @@ align-items: center;
 }
 
 
-.play{
+/*.play{
     width: 28px;
     height: 28px;
     border-radius: 50px;
@@ -186,7 +191,7 @@ align-items: center;
     right: 10px;
     opacity : 1;
     transition:all 1s ease-out
-}
+}*/
 
 
 .container{
@@ -236,9 +241,11 @@ margin: 0 12px;
 .playbar{
     position: absolute;
     bottom: 0px;
-    background-color: rgb(12, 66, 12);
-    width: 90%;
+    background-color: rgb(28, 29, 29);
+    width: 93%;
     padding: 14px;
+    border-radius: 15px;
+    height: 30px;
 }
 
 .songbuttons{
@@ -246,6 +253,13 @@ margin: 0 12px;
     justify-content: center;
     gap: 16px;
     font-size: 20px;
+}
+
+.songbuttons img {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+
 }
 
 
@@ -350,7 +364,35 @@ font-weight: bold;
 }
 
 
+.seekbar{
+    height: 4px;
+    width: 96%;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    border-radius: 10px;
+    margin: 4px;
+    cursor: pointer;
+}
 
 
+.circle{
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+    background-color: white;
+    position: relative;
+    bottom: 6px;
+    left: 0px;
+    transition: left 0.5s;
+
+}
+
+
+.abovbar{
+ display: flex;
+ justify-content: space-between;
+
+}
 
 
