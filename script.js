@@ -1,6 +1,7 @@
 console.log("Let's write JavaScript");
 let currentSong = new Audio();
 let songs;
+let currfolder;
 function secondsToMinutesSeconds(seconds) {
 
     if (isNaN(seconds) || seconds < 0) {
@@ -20,9 +21,10 @@ function secondsToMinutesSeconds(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 
 }
-async function getSongs() {
+async function getSongs(folder) {
+    currfolder=folder
+    let a = await fetch(`http://127.0.0.1:5500/${folder}/`);
 
-    let a = await fetch("http://127.0.0.1:5500/songs/");
     let response = await a.text();
 
     let div = document.createElement("div");
@@ -30,42 +32,18 @@ async function getSongs() {
 
     let as = div.getElementsByTagName("a");
 
-    let songs = [];
+    songs = [];
 
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
 
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split("/songs/")[1]);
+            songs.push(element.href.split(`/${folder}/`)[1]);
         }
     }
-
-    return songs;
-}
-const playMusic = (track, pause = false) => {
-    //let audio = new Audio("/songs/" +track)
-    currentSong.src = "/songs/" + track;
-    if (!pause) {
-        currentSong.play()
-        play.src = "pause.svg"
-    }
-
-    document.querySelector(".songinfo").innerHTML = decodeURI(track)
-    document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
-}
-
-async function main() {
-
-
-    //get the list of all the songs
-    songs = await getSongs();
-    playMusic(songs[0], true)
-
-    // songs.forEach(song => {
-    console.log(songs)
-
     //show all the songs in the playlist
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
+    songUL.innerHTML=""
     for (const song of songs) {
         songUL.innerHTML = songUL.innerHTML + `<li> <img class = "invert" src="music.svg" alt="">
                             <div class="info">
@@ -85,6 +63,31 @@ async function main() {
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
     })
+
+}
+const playMusic = (track, pause = false) => {
+    //let audio = new Audio("/songs/" +track)
+    currentSong.src = `/${currfolder}/` + track;
+    if (!pause) {
+        currentSong.play()
+        play.src = "pause.svg"
+    }
+
+    document.querySelector(".songinfo").innerHTML = decodeURI(track)
+    document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
+}
+
+async function main() {
+
+
+    //get the list of all the songs
+     await getSongs("songs/ncs");
+    playMusic(songs[0], true)
+
+    // songs.forEach(song => {
+    console.log(songs)
+
+    
 
 
     //Attach an event listener to previous, play and next
@@ -140,6 +143,15 @@ document.querySelector(".close").addEventListener("click", () =>{
     if((index+1) < songs.length ){
       playMusic(songs[index+1])
     }
+   })
+
+   //load the playlist whenever card is clicled
+   Array.from(document.getElementsByClassName("card")).forEach(e =>{
+    
+    e.addEventListener("click",async items=>{
+        await getSongs(`songs/${items.currentTarget.dataset.folder}`)
+        playMusic(songs[0]);
+    })
    })
 }
 
