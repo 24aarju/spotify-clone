@@ -161,7 +161,7 @@ align-items: center;
     flex-wrap: wrap;
     padding-top: 10px;
     overflow-y: auto;
-    justify-content: center;
+    
     
     
 }
@@ -473,12 +473,14 @@ font-weight: bold;
         display: block;
     }
     .card{
-        width: auto;
+        width: 250px;
     }
+    
     
     .cardContainer{
         margin: 0;
         justify-content: center;
+
         
     }
     .close{

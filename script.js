@@ -77,17 +77,47 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 }
 async function displayAlbums() {
+    console.log("displaying albums")
     let a = await fetch(`http://127.0.0.1:5500/songs/`)
     let response = await a.text();
     let div = document.createElement("div");
     div.innerHTML = response; 
     let anchors = div.getElementsByTagName("a")
-    Array.from(anchors).forEach(e=>{
-       
-        if(e.href.includes("/songs")){
-            console.log(e.href.split("/").pop());
+    
+    let cardContainer = document.querySelector(".cardContainer")
+     let array = Array.from(anchors)
+     for (let index = 0; index < array.length; index++) {
+        const e = array[index];
+           if(e.href.includes("/songs/") && !e.href.endsWith("songs")){
+            let folder = e.href.split("/").pop();
+            if (folder== "songs") continue;
+            
+
+            //get the metadata of the folder
+            console.log(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+            let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`)
+         let response = await a.json();
+         cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder ="${folder}" class="card">
+                        <div class="play">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30">
+                                <path fill="#1DB954"
+                                    d="M320 112C434.9 112 528 205.1 528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM276.5 211.5C269.1 207 259.8 206.8 252.2 211C244.6 215.2 240 223.3 240 232L240 408C240 416.7 244.7 424.7 252.3 428.9C259.9 433.1 269.1 433 276.6 428.4L420.6 340.4C427.7 336 432.1 328.3 432.1 319.9C432.1 311.5 427.7 303.8 420.6 299.4L276.6 211.4zM362 320L288 365.2L288 274.8L362 320z" />
+                            </svg>
+                        </div>
+                        <img src="/songs/${folder}/cover.jpg" alt="">
+                        <h2>${response.title}</h2>
+                        <p>${response.description}</p>
+                    </div>`
         }
+    }
+    //load the playlist whenever card is clicled
+   Array.from(document.getElementsByClassName("card")).forEach(e =>{
+    
+    e.addEventListener("click",async items=>{
+        await getSongs(`songs/${items.currentTarget.dataset.folder}`)
+        playMusic(songs[0]);
     })
+   })
     
 }
 
@@ -159,14 +189,7 @@ document.querySelector(".close").addEventListener("click", () =>{
     }
    })
 
-   //load the playlist whenever card is clicled
-   Array.from(document.getElementsByClassName("card")).forEach(e =>{
-    
-    e.addEventListener("click",async items=>{
-        await getSongs(`songs/${items.currentTarget.dataset.folder}`)
-        playMusic(songs[0]);
-    })
-   })
+   
 }
 
 main();
