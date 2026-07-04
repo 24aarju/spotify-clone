@@ -163,6 +163,7 @@ align-items: center;
     overflow-y: auto;
     justify-content: center;
     
+    
 }
 
  .card {
@@ -472,12 +473,13 @@ font-weight: bold;
         display: block;
     }
     .card{
-        width: 70vw;
+        width: auto;
     }
     
     .cardContainer{
         margin: 0;
         justify-content: center;
+        
     }
     .close{
         display: block;

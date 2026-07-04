@@ -76,6 +76,20 @@ const playMusic = (track, pause = false) => {
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 }
+async function displayAlbums() {
+    let a = await fetch(`http://127.0.0.1:5500/songs/`)
+    let response = await a.text();
+    let div = document.createElement("div");
+    div.innerHTML = response; 
+    let anchors = div.getElementsByTagName("a")
+    Array.from(anchors).forEach(e=>{
+       
+        if(e.href.includes("/songs")){
+            console.log(e.href.split("/").pop());
+        }
+    })
+    
+}
 
 async function main() {
 
@@ -87,8 +101,8 @@ async function main() {
     // songs.forEach(song => {
     console.log(songs)
 
-    
-
+    //Display the list of all the songs
+    displayAlbums()
 
     //Attach an event listener to previous, play and next
     play.addEventListener("click", () => {
