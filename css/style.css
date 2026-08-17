@@ -161,6 +161,7 @@ align-items: center;
     flex-wrap: wrap;
     padding-top: 10px;
     overflow-y: auto;
+justify-content: center;
     
     
     
@@ -429,6 +430,7 @@ font-weight: bold;
 }
 .hamburger{
     display: none;
+    cursor: pointer;
 }
 .hamburgercont{
     justify-content: center;
